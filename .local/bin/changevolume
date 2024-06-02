@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# Increment, decrement, or mute the volume using Pamixer and send a notification
+
+case $1 in
+    up)
+        # Set the volume on (if it was muted)
+        pamixer -u
+        pamixer --allow-boost -i 5
+        ;;
+    down)
+        pamixer -u
+        pamixer --allow-boost -d 5
+        ;;
+    mute)
+        pamixer -t
+        ;;
+esac
+
+VOLUME=$(pamixer --get-volume)
+
+
+send_notification() {
+    if [ "$1" = "mute" ]; then ICON="mute"; elif [ "$VOLUME" -lt 33 ]; then ICON="low"; elif [ "$VOLUME" -lt 66 ]; then ICON="medium"; else ICON="high"; fi
+    if [ "$1" = "mute" ]; then TEXT="Currently muted"; else TEXT="Currently at ${VOLUME}%"; fi
+
+    dunstify -a "Volume" -r 9993 -h int:value:"$VOLUME" -i ~/.local/share/icons/custom/volume-$ICON.png "Volume" "$TEXT" -t 2000
+}
+
+case $1 in
+    mute)
+        case "$(pamixer --get-mute)" in
+            *true* ) send_notification mute;;
+            *      ) send_notification;;
+        esac;;
+    *)
+        send_notification;;
+esac
+

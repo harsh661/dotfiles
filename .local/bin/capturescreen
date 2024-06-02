@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Set the DISPLAY variable to the appropriate value
+export DISPLAY=:0
+
+# Determine the path to scrot
+scrot_cmd=$(which scrot)
+
+log_file="/tmp/scrot.log"
+
+# Check if scrot is available
+if [ -z "$scrot_cmd" ]; then
+    echo "Error: scrot command not found."
+    exit 1
+fi
+
+# Define the screenshot file path with the current date and time
+screenshot_file="/home/harsh/Pictures/Screenshots/Screenshot_$(date +'%Y-%m-%d_%H%M%S').png"
+
+# Check if the first argument is "select"
+case $1 in
+    select)
+        # Take a screenshot of a selected area using scrot -s
+        if ! "$scrot_cmd" -s "$screenshot_file" &> "$log_file"; then
+            echo "Error: Failed to take screenshot of selected area."
+            exit 1
+        fi 
+        ;;
+    *)
+        # Take a full screenshot using scrot
+        "$scrot_cmd" "$screenshot_file"
+        ;;
+esac
+
+# Check if scrot was successful
+if [ $? -eq 0 ]; then
+    # If successful, notify using Dunst
+    notify-send "Screenshot saved as $(date +'%Y-%m-%d_%H%M%S').png" -i "$screenshot_file"
+else
+    # If scrot failed, notify the error using Dunst
+    notify-send "Error" "Failed to take screenshot"
+fi
+
