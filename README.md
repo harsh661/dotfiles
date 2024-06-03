@@ -33,3 +33,9 @@ then use Stow to create symlinks
 ```
 $ stow .
 ```
+
+or,
+
+```
+$ stow --adopt .
+```
