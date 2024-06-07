@@ -51,6 +51,12 @@ return require('packer').startup(function(use)
 
   use('mbbill/undotree')
 
+  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
+
+  use "sindrets/diffview.nvim"  -- Diffview for git
+
+  use 'nvim-tree/nvim-web-devicons'  -- File icons
+
   use {
   "windwp/nvim-autopairs",
   wants = "nvim-treesitter",
