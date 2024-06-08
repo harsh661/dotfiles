@@ -23,6 +23,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id ~/.local/bin/changevolume down
 bindsym XF86AudioMute exec --no-startup-id ~/.local/bin/changevolume mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Brightness controls
+bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+
 # Focus, movement, and resize directions
 set $up k
 set $down j
