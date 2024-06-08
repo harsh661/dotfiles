@@ -44,7 +44,7 @@ bindsym $mod+Return exec tilix
 bindsym $mod+x kill
 
 # Program launchers
-bindsym $mod+d exec ~/.config/polybar/cuts/scripts/launcher.sh &
+bindsym $mod+d exec ~/dotfiles/.config/rofi/scripts/launcher_t1 &
 bindsym $mod+n exec ~/.config/polybar/material/scripts/rofi-wifi-menu.sh &
 
 # Shortcut to capture screenshot
