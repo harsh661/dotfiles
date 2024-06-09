@@ -2,6 +2,8 @@
 
 This repo contains all my dotfiles for my linux system
 
+![alt text](https://res.cloudinary.com/dup9yyuez/image/upload/v1717861492/bnv9ck1els4z8h5vwuxb.png)
+
 ## Requirements
 
 Ensure you have the following installed on your system
