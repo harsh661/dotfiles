@@ -168,9 +168,21 @@ client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
 client.background #ffffff
 
 # Autostart applications
+
+# Start nitrogen to restore wallpaper
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+
+# Start kdeconnectd
 exec --no-startup-id /usr/lib/kdeconnectd
+
+# Check if polybar is already running, if not, start it
+exec polybar
+
+# Start picom for window transparency
 exec_always picom -b
-exec_always ~/.config/polybar/forest/launch.sh
+
+# Remap CapsLock key with esc
 exec_always --no-startup-id setxkbmap -option caps:swapescape
+
+# Start dunst for notifications
 exec_always dunst
