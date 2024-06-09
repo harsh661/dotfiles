@@ -46,13 +46,14 @@ source $ZSH/oh-my-zsh.sh
 # export EDITOR='vim' if [[ -n $SSH_CONNECTION ]]; then export EDITOR='vim'; else export EDITOR='mvim'; fi
 
 # Personal aliases
-alias zshconfig="nvim ~/.zshrc"
+alias zshconfig="nvim ~/dotfiles/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias i3config="nvim ~/.config/i3/config"
-alias polyconfig="nvim ~/.config/polybar"
+alias i3config="nvim ~/dotfiles/.config/i3/config"
+alias polyconfig="nvim ~/dotfiles/.config/polybar"
 alias bat="cat /sys/class/power_supply/BAT0/capacity"
-alias project="cd Desktop/projects"
+alias project="cd ~/Desktop/projects"
 alias vim="nvim"
+alias cd="z"
 
 # Neofetch
 # neofetch
@@ -70,3 +71,6 @@ PATH=~/.console-ninja/.bin:$PATH
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
+
+# Set up zoxide as replacement for cd
+eval "$(zoxide init zsh)"
