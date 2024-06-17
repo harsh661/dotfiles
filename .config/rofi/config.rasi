@@ -184,4 +184,7 @@ configuration {
 //@theme "/home/harsh/.local/share/rofi/themes/custom.rasi"
 //@theme "/home/harsh/.local/share/rofi/themes/colors.rasi"
 //@theme "/home/harsh/.local/share/rofi/themes/colors.rasi"
-@theme "/usr/share/rofi/themes/Paper.rasi"
+//@theme "/usr/share/rofi/themes/Paper.rasi"
+//@theme "/usr/share/rofi/themes/dmenu.rasi"
+//@theme "/usr/share/rofi/themes/sidebar.rasi"
+@theme "/home/harsh/.local/share/rofi/themes/custom.rasi"

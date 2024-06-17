@@ -15,7 +15,7 @@ theme='style-1'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
-host=`hostname`
+host=`/usr/bin/hostnamectl | grep -oP "Static hostname: \K.*"`
 
 # Options
 shutdown=' Shutdown'

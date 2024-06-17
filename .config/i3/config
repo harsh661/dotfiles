@@ -44,8 +44,8 @@ bindsym $mod+Return exec tilix
 bindsym $mod+x kill
 
 # Program launchers
-bindsym $mod+d exec ~/dotfiles/.config/rofi/scripts/launcher_t1 &
-bindsym $mod+n exec ~/.config/polybar/material/scripts/rofi-wifi-menu.sh &
+bindsym $mod+d exec ~/dotfiles/.config/rofi/scripts/launcher_t2 &
+bindsym $mod+n exec ~/dotfiles/.config/rofi/scripts/connect_wifi.sh &
 
 # Shortcut to capture screenshot
 bindsym $mod+Print exec --no-startup-id ~/.local/bin/capturescreen
@@ -173,7 +173,7 @@ client.background #ffffff
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 
 # Start kdeconnectd
-exec --no-startup-id /usr/lib/kdeconnectd
+exec --no-startup-id /usr/bin/kdeconnectd
 
 # Check if polybar is already running, if not, start it
 exec polybar
