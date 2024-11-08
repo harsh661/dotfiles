@@ -14,6 +14,8 @@ export ANDROID_SDK_HOME=$ANDROID_HOME/system-images
 # Environment variables
 export EDITOR=nvim
 export GREP_COLORS='mt-1;33'
+export JAVA_HOME=/usr/lib/jvm/default
+export PATH=$JAVA_HOME/bin:$PATH
 
 # Zsh theme
 ZSH_THEME="materialshell"
@@ -56,7 +58,7 @@ alias vim="nvim"
 alias cd="z"
 
 # Neofetch
-# neofetch
+neofetch
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -67,10 +69,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Add custom bin to PATH
-PATH=~/.console-ninja/.bin:$PATH
+
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
 # Set up zoxide as replacement for cd
 eval "$(zoxide init zsh)"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

@@ -57,6 +57,8 @@ return require('packer').startup(function(use)
 
   use 'nvim-tree/nvim-web-devicons'  -- File icons
 
+  use('prettier/vim-prettier')
+
   use {
   "windwp/nvim-autopairs",
   wants = "nvim-treesitter",

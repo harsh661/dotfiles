@@ -140,18 +140,18 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Resize mode
 mode "resize" {
     bindsym $left resize shrink width 10 px or 10 ppt
-    bindsym $down resize grow height 10 px or 10 ppt
-    bindsym $up resize shrink height 10 px or 10 ppt
-    bindsym $right resize grow width 10 px or 10 ppt
+        bindsym $down resize grow height 10 px or 10 ppt
+        bindsym $up resize shrink height 10 px or 10 ppt
+        bindsym $right resize grow width 10 px or 10 ppt
 
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
 
@@ -169,6 +169,19 @@ client.background #ffffff
 
 # Autostart applications
 
+bar {
+    position top
+        font pango:JetBrainsMono Nerd Font 12
+        status_command ~/dotfiles/.config/bumblebee-status/bumblebee-status \
+        -m memory battery time dunstctl \
+        -p time.format="%H:%M" \
+        -t moonlight-powerline
+
+        colors {
+            background #2e3440cc
+        }
+}
+
 # Start nitrogen to restore wallpaper
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 
@@ -176,7 +189,7 @@ exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id /usr/bin/kdeconnectd
 
 # Check if polybar is already running, if not, start it
-exec polybar
+# exec polybar
 
 # Start picom for window transparency
 exec_always picom -b

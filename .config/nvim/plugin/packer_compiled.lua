@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/harsh/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/home/harsh/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/harsh/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",

@@ -5,6 +5,9 @@
 
 export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+export XDG_RUNTIME_DIR="/run/user/1000"
+export PULSE_RUNTIME_PATH="/run/user/1000/pulse"
+export PULSE_SERVER="unix:/run/user/1000/pulse/native"
 
 # Battery percentage at which to notify
 WARNING_LEVEL=20
@@ -27,13 +30,16 @@ fi
 # If the battery is charging and is full (and has not shown notification yet)
 if [ "$BATTERY_LEVEL" -gt 99 ] && [ "$BATTERY_DISCHARGING" -eq 0 ] && [ ! -f $FULL_FILE ]; then
 	notify-send "Battery Charged" "Battery is fully charged." -i ~/.local/share/icons/custom/battery.png -r 9991
+    paplay ~/dotfiles/.local/sounds/battery-notify.ogg
 	touch $FULL_FILE
 	# If the battery is low and is not charging (and has not shown notification yet)
 elif [ "$BATTERY_LEVEL" -le $WARNING_LEVEL ] && [ "$BATTERY_DISCHARGING" -eq 1 ] && [ ! -f $EMPTY_FILE ]; then
 	notify-send "Low Battery" "${BATTERY_LEVEL}% of battery remaining." -u critical -i ~/.local/share/icons/custom/battery-alert.png -r 9991
+    paplay ~/dotfiles/.local/sounds/battery-notify.ogg
 	touch $EMPTY_FILE
 	# If the battery is critical and is not charging (and has not shown notification yet)
 elif [ "$BATTERY_LEVEL" -le $CRITICAL_LEVEL ] && [ "$BATTERY_DISCHARGING" -eq 1 ] && [ ! -f $CRITICAL_FILE ]; then
 	notify-send "Battery Critical" "The computer will shutdown soon." -u critical -i ~/.local/share/icons/custom/battery-alert.png -r 9991
+    paplay ~/dotfiles/.local/sounds/battery-notify.ogg
 	touch $CRITICAL_FILE
 	fi
